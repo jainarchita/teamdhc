@@ -76,3 +76,6 @@ Caused by: org.eclipse.swt.SWTException: Widget is disposed
 	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
 	... 23 more
+
+!ENTRY org.eclipse.osgi 2 1 2014-02-19 22:17:12.074
+!MESSAGE NLS missing message: CoverageViewColumnMissedBlocks_label in: com.mountainminds.eclemma.internal.ui.uimessages

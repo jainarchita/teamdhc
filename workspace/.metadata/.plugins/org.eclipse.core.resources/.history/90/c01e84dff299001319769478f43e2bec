@@ -1,0 +1,43 @@
+/**
+ * 
+ */
+package rocketStuff;
+
+import javax.swing.JApplet;
+
+/**
+ * Draws an applet showing the rocket taking off.
+ * 
+ * @author Tanmay Chordia
+ * @date  2/19/2014
+ * @see RocketMath Class
+ * @version 1
+ *
+ */
+
+public class BallRocket extends JApplet {
+
+	/**
+	 * @param m0
+	 * @param mW
+	 * @param vB
+	 * @param p0
+	 * @param cD
+	 * @param rBot
+	 * @param rNoz
+	 */
+	public BallRocket(double m0, double mW, double vB, double p0, double cD,
+			double rBot, double rNoz) {
+		super(m0, mW, vB, p0, cD, rBot, rNoz);
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

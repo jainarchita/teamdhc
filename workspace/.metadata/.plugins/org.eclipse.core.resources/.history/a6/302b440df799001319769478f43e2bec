@@ -1,0 +1,42 @@
+/**
+ * 
+ */
+package RocketApplet;
+
+import java.awt.Graphics;
+import java.awt.HeadlessException;
+
+import javax.swing.JApplet;
+
+import rocketStuff.RocketMath;
+
+/**
+ * @author Tanmay Chordia
+ * @date Feb 19, 2014
+ * @version 1
+ */
+public class BallRocket extends AnimationBase {
+
+	/**
+	 * @throws HeadlessException
+	 */
+	public BallRocket() throws HeadlessException {
+		// TODO Auto-generated constructor stub
+	}
+
+	public int screenHeight = 50;
+
+	public void drawFrame(Graphics g) {
+		int width = getWidth();
+		int height = getHeight();
+
+		RocketMath rocket = new RocketMath();
+		Circle circ = new Circle(width / 2, height - 5, 3);
+
+		rocket.doStep();
+		circ.moveUp((int) ((height * Math.round(rocket.h)) / screenHeight));
+		circ.fill(g);
+
+	}
+
+}

@@ -1,0 +1,54 @@
+/**
+ * 
+ */
+package RocketApplet;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.HeadlessException;
+
+import javax.swing.JApplet;
+
+import rocketStuff.RocketMath;
+
+/**
+ * @author Tanmay Chordia
+ * @date Feb 19, 2014
+ * @version 1
+ */
+public class BallRocket extends AnimationBase {
+
+	/**
+	 * @throws HeadlessException
+	 */
+	public BallRocket() throws HeadlessException {
+		// TODO Auto-generated constructor stub
+	}
+	RocketMath rocket = new RocketMath(0.76, 0.66, .002, 653312.5, 1,.05, .01);
+	Circle circ = new Circle(getWidth()/2, 500, 10);
+	public int screenHeight = 28;
+
+	public void drawFrame(Graphics g) {
+		circ.setX(getWidth() / 2);
+		if ((getHeight() * Math.round(rocket.h)) / screenHeight >= 0)
+		{
+		setMillisecondsPerFrame( 1 );
+		int width = getWidth();
+		int height = getHeight();
+		g.setColor(Color.WHITE);
+		g.fillRect(0,0,1000, 1000);
+		
+		
+
+		g.setColor(Color.black);
+		rocket.doStep();
+		circ.setH((int) (Math.round((height * rocket.h) / screenHeight)), height);
+		circ.fill(g);
+		System.out.println(circ.y);
+		}
+		else
+			RocketMath rocket = new RocketMath(0.76, 0.66, .002, 653312.5, 1,.05, .01);
+
+	}
+
+}

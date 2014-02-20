@@ -1,0 +1,36 @@
+/**
+ * 
+ */
+package rocketStuff;
+
+import java.awt.Graphics;
+import java.awt.HeadlessException;
+
+import javax.swing.JApplet;
+
+import rocketStuff.RocketMath;
+
+/**
+ * @author Tanmay Chordia
+ * @date Feb 19, 2014
+ * @version 1
+ */
+public class BallRocket extends JApplet {
+
+	/**
+	 * @throws HeadlessException
+	 */
+	public BallRocket() throws HeadlessException {
+		// TODO Auto-generated constructor stub
+	}
+	public void paint(Graphics g)
+	{
+		RocketMath rocket = new RocketMath();
+		while (rocket.h >= 0)
+		{
+			rocket.doStep();
+			
+		}
+	}
+
+}
