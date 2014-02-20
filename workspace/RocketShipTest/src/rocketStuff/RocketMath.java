@@ -4,7 +4,10 @@
 package rocketStuff;
 
 /**
- * @author ajain
+ * @author Tanmay Chordia
+ * @date  2/19/2014
+ * @see RocketMathApplet Class
+ * @version 3
  *
  */
 
@@ -149,6 +152,7 @@ public class RocketMath {
 		System.out.println("Mass2 " + m);
 		return m;
 	}
+	
 	
 	/**
 	 * @return return the acceleration at a given time.

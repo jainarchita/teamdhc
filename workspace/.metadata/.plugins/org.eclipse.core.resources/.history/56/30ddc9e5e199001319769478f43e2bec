@@ -1,0 +1,123 @@
+package rocketStuff;
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JApplet;
+
+/**
+   Graphs the sine function in red and the cosine function in blue,
+   both in the same drawing area. Draws the x and y axis. Also, draws
+   "tick" marks along the x axis at PI/4, PI/2, 3*PI/4, and 2*PI.
+   Draw axes and tick marks in black.
+   
+   The drawing area is 600 by 400. (X=0, Y=0) is the top left corner.
+
+   @author  Tanmay Chordia
+   @version 
+
+   @author  Period - TODO Your Period
+   @author  Assignment - Ex3_SineCosineWave
+
+   @author  Sources - TODO list collaborators
+ */
+public class DrawGraph extends JApplet
+{
+    public void init()
+    {
+        setBackground( Color.WHITE );
+        
+        // add additional initialization code if necessary
+    }
+    
+    RocketMathApplet rocket = new RocketMathApplet(0.76, 0.66, .002, 253312.5, 1,.05, .01);
+	// (double m0, double mW, double vB, double p0, double cD, double rBot, double rNoz)
+    
+    int sHeight = 20;
+    int sWidth = 20;
+    
+    public void drawAxis(Graphics gr, int width, int height)
+    {
+    	 /* 
+         * draw axis
+         */
+        gr.setColor(Color.black);
+       
+        gr.drawLine(width/2, 0 , width/2, height);
+        gr.drawLine(0, height/2 , width, height/2);
+        
+        gr.setColor( Color.blue );
+        for (int i=1; i<8; i++)
+        {
+            gr.drawLine( i * width/8, height/2 -5, i *width/8, height/2 + 5 );
+            gr.drawString(Double.toString((20 + 0.0) * i/8), i * width/8, height/2 -5);
+        }
+        
+        for (int i=1; i<8; i++)
+        {
+            gr.drawLine( width/2 -5, i * height/8, width/2 + 5 , i *height/8 );
+            gr.drawString(Double.toString((20 + 0.0) * i/8),width/2 -5, i * height/8);
+        }
+    }
+    public void paint( Graphics gr )
+    {
+    	
+    	int width = getWidth();
+        int height = getHeight();
+    	drawAxis(gr,width,height);
+    	rocket = new RocketMathApplet(0.76, 0.66, .002, 253312.5, 1,.05, .01);
+    	double inc = 1.0/10;
+    	double y2 = 10;
+    	double nexty2 = 10;
+        gr.setColor( Color.blue );
+       
+        
+        /* 
+         * Draws the position graph
+         * 
+         */
+        for (double x = 0.0; x <= 20; x = x + inc)
+        {
+          
+          
+          
+          double y     =  rocket.h;
+          y2 = rocket.v;
+          double nextx = x + inc;
+          rocket.doStep();
+          double nexty =rocket.h;
+          nexty2 = rocket.v;
+          
+          
+          
+        /*  y = 10;
+          nexty = 10;
+          if (x == 15)
+          {
+        	  y = 20;
+        	  
+          }*/
+         
+          
+          int startX = (int)( x * width/(20));
+          int startY = (int)(-y * height/200 + height/2.0);
+          int endX   = (int)( nextx * width/(20));
+          int endY   = (int)(-nexty * height/200 + height/2.0);
+          
+          
+          gr.drawLine(startX, startY, endX, endY);
+          
+          startX = (int)( x * width/(20));
+          startY = (int)(-y2 * height/200 + height/2.0);
+          endX   = (int)( nextx * width/(20));
+          endY   = (int)(-nexty2 * height/200 + height/2.0);
+          
+          gr.drawLine(startX, startY, endX, endY);
+          
+        }
+        
+        
+       
+        
+    }
+    
+}

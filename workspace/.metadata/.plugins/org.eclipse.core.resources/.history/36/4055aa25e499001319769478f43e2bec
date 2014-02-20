@@ -1,0 +1,81 @@
+/**
+ * 
+ */
+package rocketStuff;
+
+import java.awt.Graphics;
+
+/**
+ * @author ajain
+ *
+ */
+
+public class RocketMathApplet extends RocketMath  {
+
+	/**
+	 * @param args
+	 * @param m0 = total weight of rocket (kg)
+	 * @param mW = intital amount of water (kg)
+	 * @param vB = bottle volume (liters)
+	 * @param p0 = intial air pressure (pascals)
+	 * @param cD = drag coefficient  ( no unit)
+	 * @param step = time step 
+	 * @param rBot = bottle radius (m)
+	 * @param rNoz = nozzle radius (m)
+	 * @param iP = internal pressure (pascals)
+	 * @param pW = water density
+	 * @param oP = external pressure
+	 * @param m = mass at a given time
+	 * @param a = acceleration at a given time
+	 * @param v = velocity at a given time
+	 * @param h = height at a given time
+	 * @param pA = air density at a given time
+
+	 general notes: p + letter = density, letter + p = pressure
+	 ex: pA = air density, iP = internal pressure
+	 */
+	public double m0;
+	public double mW;
+	public double vB;
+	public double p0;
+	public double cD;
+   
+    public double rBot;
+    public double rNoz;
+    public double vW0;
+    public double vA0;
+    public double iP;
+    public double pW = .001;
+    
+    
+	public double dMdt;
+	public double thrust;
+	public double m = 0;
+	public double v = 0;
+	public double a = 0;
+	public double h = 0;
+	public int t = 0;
+	public final double y = 1.4;
+	public final double g = 9.81;
+	public final double oP = 101325; //pascals
+	public final double step = 0.01; 
+	public final double pA = .0000013; //TODO: FIX ALL CONSTANT VALUES 
+    
+	
+	public RocketMathApplet(double m0, double mW, double vB, double p0, double cD, double rBot, double rNoz)
+	{
+		super(m0, mW, vB, p0, cD, rBot, rNoz);
+		
+	}
+	
+	
+    public RocketMathApplet copy() {
+    	RocketMathApplet a = new RocketMathApplet(m0,mW,vB, p0, cD,  rBot,  rNoz);
+    	return a;
+    }
+}
+	
+	/**
+	 * @return iP, return the internal air pressure of the water bottle rocket
+	 */
+	

@@ -1,0 +1,35 @@
+/**
+ * 
+ */
+package rocketStuff;
+
+import java.awt.Graphics;
+
+/**
+ * @author ajain
+ *
+ */
+
+public class RocketMathApplet extends RocketMath  {
+
+/* 
+ * See RocketMath class
+ * */
+	
+	public RocketMathApplet(double m0, double mW, double vB, double p0, double cD, double rBot, double rNoz)
+	{
+		super(m0, mW, vB, p0, cD, rBot, rNoz);
+		
+	}
+	
+	
+    public RocketMathApplet copy() {
+    	RocketMathApplet a = new RocketMathApplet(m0,mW,vB, p0, cD,  rBot,  rNoz);
+    	return a;
+    }
+}
+	
+	/**
+	 * @return iP, return the internal air pressure of the water bottle rocket
+	 */
+	
