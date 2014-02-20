@@ -27,7 +27,7 @@ public class BallRocket extends AnimationBase {
 	public BallRocket() throws HeadlessException {
 		// TODO Auto-generated constructor stub
 	}
-	RocketMath rocket = new RocketMath(0.76, 0.66, .002, 1053312.5, 1,.05, .01, .04); // last one changes the step to .05, increase to speed up, decrease to slow down 
+	RocketMath rocket = new RocketMath(0.76, 0.66, .002, 653312.5, 1,.05, .01, .02); // last one changes the step to .05, increase to speed up, decrease to slow down 
 	Circle circ = new Circle(getWidth()/2, 500, 5); //the circle object
 	public int screenHeight = 40; // the height of the screen
 
